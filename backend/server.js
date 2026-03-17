@@ -61,3 +61,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// Add this at the very end of server.js (after app.listen but before module.exports)
+module.exports = app;
