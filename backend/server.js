@@ -70,12 +70,9 @@ app.use((req, res) => {
 // Export for Vercel (don't start server)
 module.exports = app;
 
-// Replace your existing app.listen with this:
 if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-} else {
-  // Export for Vercel
-  module.exports = app;
 }
