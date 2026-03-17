@@ -39,7 +39,8 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      // Updated URL to connect to backend
+      const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,10 +48,19 @@ export default function Contact() {
         body: JSON.stringify(formState),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        // Handle validation errors from backend
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          throw new Error(data.message || 'Failed to send message');
+        }
+        return;
       }
 
+      // Success!
       setIsSubmitted(true);
       setFormState({ name: '', email: '', goal: 'Weight Loss', message: '' });
     } catch (error) {
