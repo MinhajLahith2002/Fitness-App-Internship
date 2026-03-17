@@ -11,6 +11,7 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* Remove padding from body - let sections handle their own padding */
 .section-padding {
   @apply py-20 px-6 md:px-12 lg:px-24;
 }
@@ -21,4 +22,9 @@ body {
 
 .btn-secondary {
   @apply bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full transition-all duration-300;
+}
+
+/* Optional: Add container class for consistent max-width */
+.container-custom {
+  @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-24;
 }

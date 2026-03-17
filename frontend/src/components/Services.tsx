@@ -84,7 +84,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="section-padding bg-dark-accent">
+    <section id="services" className="section-padding bg-[#333333]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -108,7 +108,7 @@ export default function Services() {
           <div className="lg:hidden mb-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="w-full bg-dark border border-white/10 rounded-xl py-3 px-4 text-white flex items-center justify-between"
+              className="w-full bg-[#333333] border border-white/10 rounded-xl py-3 px-4 text-white flex items-center justify-between"
             >
               <span className="flex items-center gap-2">
                 <Filter className="w-5 h-5 text-primary" />
@@ -120,7 +120,7 @@ export default function Services() {
 
           {/* Search and Filters Container */}
           <div className={`${showFilters ? 'block' : 'hidden'} lg:block`}>
-            <div className="bg-dark/50 rounded-2xl p-6 border border-white/10">
+            <div className="bg-[#333333] rounded-2xl p-6 border border-white/10">
               {/* Search Bar */}
               <div className="mb-6">
                 <div className="relative">
@@ -130,7 +130,7 @@ export default function Services() {
                     placeholder="Search services by name, description, or keywords..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-dark border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-primary/50 transition-colors"
+                    className="w-full bg-[#333333] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-primary/50 transition-colors"
                   />
                   {searchTerm && (
                     <button
@@ -148,14 +148,14 @@ export default function Services() {
                 <span className="text-white/50 text-sm uppercase tracking-wider mr-2">Filter by:</span>
                 {categories.map((category) => (
                   <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                      selectedCategory === category
-                        ? 'bg-primary text-black'
-                        : 'bg-dark border border-white/10 text-white/70 hover:border-primary/30 hover:text-white'
-                    }`}
-                  >
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        selectedCategory === category
+                          ? 'bg-primary text-black'
+                          : 'bg-[#333333] border border-white/10 text-white/70 hover:border-primary/30 hover:text-white'
+                      }`}
+                    >
                     {category}
                   </button>
                 ))}
@@ -192,7 +192,7 @@ export default function Services() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-dark p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group"
+                  className="bg-[#333333] p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group"
                 >
                   <div className="mb-6 bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     {service.icon}
@@ -234,7 +234,7 @@ export default function Services() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <div className="bg-dark/50 rounded-2xl p-12 max-w-md mx-auto">
+            <div className="bg-[#333333] rounded-2xl p-12 max-w-md mx-auto">
               <Search className="w-16 h-16 text-white/20 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-white mb-2">No services found</h3>
               <p className="text-white/50 mb-6">

@@ -1,5 +1,6 @@
 import { Users, ShieldCheck, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
+import aboutImg from '../assets/images/about_image.jpg';
 
 export default function About() {
   const features = [
@@ -33,7 +34,7 @@ export default function About() {
             className="rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop"
+              src={aboutImg}
               alt="Trainer and Client"
               className="w-full h-[600px] object-cover"
               referrerPolicy="no-referrer"

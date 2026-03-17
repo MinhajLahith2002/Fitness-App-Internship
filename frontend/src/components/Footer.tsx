@@ -1,16 +1,15 @@
 import { Dumbbell, MapPin, Phone, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import icon from '../assets/images/icon.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2A1E17] text-white pt-20 pb-10 px-6 md:px-12 lg:px-24">
+    <footer className="bg-[#3D2B1F] text-white pt-20 pb-10 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="bg-primary p-1.5 rounded-lg">
-                <Dumbbell className="text-black w-6 h-6" />
-              </div>
+            <div className="flex items-center gap-3 mb-6">
+              <img src={icon} alt="Fitness Sports Center icon" className="w-12 h-12 object-contain bg-white/5 p-1 rounded-md" />
               <span className="text-white font-black text-xl tracking-tighter uppercase">
                 Fitness <span className="text-primary">Sports Center</span>
               </span>

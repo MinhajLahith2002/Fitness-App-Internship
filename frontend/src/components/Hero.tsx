@@ -1,19 +1,19 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import heroImg from '../assets/images/hero image.jpg';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden bg-dark">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1583454110551-21f2fa20019b?q=80&w=2070&auto=format&fit=crop"
-          alt="Gym Background"
-          className="w-full h-full object-cover opacity-50"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/70 to-transparent"></div>
-      </div>
+    <section
+      className="relative h-screen min-h-[700px] flex items-center overflow-hidden bg-dark"
+      style={{
+        backgroundImage: `url(${heroImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 z-0 bg-black/40"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <motion.div

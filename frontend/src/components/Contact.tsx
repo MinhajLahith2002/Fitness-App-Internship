@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle } from 'lucide-react';
+import contactImg from '../assets/images/contact_image.jpg';
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -174,7 +175,7 @@ export default function Contact() {
           {/* Right: Image */}
           <div className="lg:w-1/2 relative min-h-[400px]">
             <img
-              src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop"
+              src={contactImg}
               alt="Gym Interior"
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Dumbbell } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import icon from '../assets/images/icon.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +23,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark/95 backdrop-blur-sm py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm py-4 shadow-lg`}
+      style={{ backgroundColor: '#231E0F' }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="bg-primary p-1.5 rounded-lg">
-            <Dumbbell className="text-black w-6 h-6" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img src={icon} alt="Fitness Sports Center icon" className="w-10 h-10 object-contain" />
           <span className="text-white font-black text-xl tracking-tighter uppercase">
             Fitness <span className="text-primary">Sports Center</span>
           </span>
@@ -58,12 +60,13 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark border-t border-white/10 overflow-hidden"
-          >
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-white/10 overflow-hidden"
+              style={{ backgroundColor: '#231E0F' }}
+            >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
                 <a
