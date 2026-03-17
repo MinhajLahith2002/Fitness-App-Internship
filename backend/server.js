@@ -14,20 +14,19 @@ const PORT = process.env.PORT || 5000;
 // Security middleware
 app.use(helmet());
 
-// CORS configuration
+// CORS configuration - Update for Vercel
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: '*', // For testing - restrict later
   credentials: true
 }));
 
-// Rate limiting
+// Rate limiting (note: this works differently on serverless)
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Limit each IP to 5 requests per windowMs
+  windowMs: 15 * 60 * 1000,
+  max: 5,
   message: 'Too many requests from this IP, please try again later.'
 });
 
-// Apply rate limiting to contact routes
 app.use('/api/contact', limiter);
 
 // Body parsing middleware
@@ -40,6 +39,17 @@ app.use('/api/contact', contactRoutes);
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Server is running' });
+});
+
+// Root route
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    message: 'Fitness Sports Center API',
+    endpoints: {
+      health: '/api/health',
+      contact: '/api/contact (POST)'
+    }
+  });
 });
 
 // Error handling middleware
@@ -57,10 +67,12 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-// Add this at the very end of server.js (after app.listen but before module.exports)
+// Export for Vercel (don't start server)
 module.exports = app;
+
+// Only start server if not in Vercel
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
