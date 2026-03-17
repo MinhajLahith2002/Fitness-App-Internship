@@ -20,20 +20,16 @@ This is the **React + Vite + TypeScript** frontend for the Fitness Sports Center
    cd frontend
    
 2.Install dependencies:
- ```bash
 npm install
 
 3.Start development server:
- ```bash
 npm run dev
 
 4.Build for production:
- ```bash
 npm run build
 
 ⚙️ Environment Variables
 Create a .env file in the frontend root:
- ```bash
 VITE_API_URL=http://localhost:5000   # Backend URL (for development)
 
 📂 Project Structure
